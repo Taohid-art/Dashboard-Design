@@ -19,7 +19,7 @@ export type ProfileFormInput = z.infer<typeof Profileform>;
 
 
 
-const page = () => {
+const ProfilePage = () => {
     const Router = useRouter();
      const {register, handleSubmit, formState: {errors}} = useForm<ProfileFormInput>({
         resolver:zodResolver(Profileform)
@@ -41,9 +41,8 @@ const page = () => {
       </div>
 
       <div className='max-md:w-full max-md:flex max-md:justify-center  '>
-      <form action="" className='  p-6 max-md:w-full  ' onSubmit={handleSubmit((data)=>{
+      <form action="" className='  p-6 max-md:w-full  ' onSubmit={handleSubmit(() => {
         Router.push("/settings")
-        
       })}>
         <div className="grid grid-cols-2 gap-8 max-md:grid-cols-1 ">
 
@@ -70,7 +69,7 @@ const page = () => {
           {errors.StoreAddress && <p className='text-red-500 text-sm'>{errors.StoreAddress.message}</p>}
         </div>
         </div>
-        < button type='submit' className='w-[373] rounded-md m-auto px-2 py-2 flex gap-1 mt-16 bg-[#00C950] text-white text-md text-center justify-center'>
+        < button type='submit' className='w-[373px] rounded-md m-auto px-2 py-2 flex gap-1 mt-16 bg-[#00C950] text-white text-md text-center justify-center'>
            save
            
         </button>
@@ -86,4 +85,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ProfilePage;

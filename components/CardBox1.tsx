@@ -11,8 +11,7 @@ const CardBox1 = () => {
     <div className='h-full w-full p-6 flex flex-col gap-4 overflow-hidden min-h-0'>
      <h1 className="text-white text-xl">Recent Activity</h1>
      <div className='flex flex-col gap-1.5 p-1.5 justify-center min-h-0'>
-      
-
+      <ScrollArea className="h-[370px]">
       {activity.map((item, index) => (
         
         <div key={index} className="flex flex-col justify-center gap-1 scrollbar-hide bg-[#1D293D] p-3 rounded-md">
@@ -25,7 +24,7 @@ const CardBox1 = () => {
             </div>
         </div>
       ))}
-      
+      </ScrollArea>
       
      </div>
     </div>

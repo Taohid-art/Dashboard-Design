@@ -1,5 +1,5 @@
 'use client'
-import { Calendar, Home, Inbox, LogOut, Phone, Search, Settings } from "lucide-react"
+import { Calendar, Home, LogOut, Phone, Settings } from "lucide-react"
 
 import {
   Sidebar,

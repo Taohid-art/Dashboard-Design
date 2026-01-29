@@ -1,13 +1,11 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -45,15 +43,15 @@ const chartConfig = {
 export default function ChartAreaDefault() {
   return (
     
-    <Card className="max-h-[460] bg-[#0F172B] border-[#2B7FFF]/20 border">
+    <Card className="max-h-[460px] bg-[#0F172B] border-[#2B7FFF]/20 border">
       <CardHeader>
         <CardTitle className="text-white">Area Chart</CardTitle>
         <CardDescription>
           Showing total visitors for the last 6 months
         </CardDescription>
       </CardHeader>
-      <CardContent className="max-h-[300]">
-        <ChartContainer className="max-h-[300] w-full " config={chartConfig}>
+      <CardContent className="max-h-[300px]">
+        <ChartContainer className="max-h-[300px] w-full " config={chartConfig}>
           <AreaChart
             accessibilityLayer
             data={chartData}

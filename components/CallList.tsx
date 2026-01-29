@@ -1,20 +1,13 @@
 'use client';
+import React from "react";
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
-  Phone, 
-  Calendar, 
-  MessageSquare, 
   Clock, 
-  Battery,
-  Smartphone,
-  CheckCircle2,
-  XCircle,
   CircleCheckBig,
   CirclePlay,
   FileText
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import icon from "@/public/images/Container (1).png"
 
@@ -110,18 +103,22 @@ const mockCallLogs: CallLog[] = [
 const CallListComponent = () => {
 
   const [openChat, setopenChat] = useState<string | null>(null);
+  const [todayStr, setTodayStr] = useState<string>("");
+  const [yesterdayStr, setYesterdayStr] = useState<string>("");
+
+  React.useEffect(() => {
+    const now = Date.now();
+    setTodayStr(new Date(now).toISOString().split('T')[0]);
+    setYesterdayStr(new Date(now - 86400000).toISOString().split('T')[0]);
+  }, []);
 
  const toggleChat = ({id}: {id: string}) => {
     setopenChat(openChat == id ? null : id);
   };
 
   const formatDateDisplay = (date: string) => {
-    const today = new Date().toISOString().split('T')[0];
-    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-    
-    if (date === today) return "Today";
-    if (date === yesterday) return "Yesterday";
-    
+    if (date === todayStr) return "Today";
+    if (date === yesterdayStr) return "Yesterday";
     return date;
   };
 
@@ -221,7 +218,10 @@ const CallListComponent = () => {
                 </div>
                 <div className="flex flex-col gap-1 w-62.5 mt-4">
                   <h3 className="text-sm font-normal text-[#90A1B9]">Call Type</h3>
-                  {getCallTypeText(mockCallLogs.find(call => call.id === openChat)?.type!)}
+                  {(() => {
+                    const found = mockCallLogs.find(call => call.id === openChat);
+                    return found ? getCallTypeText(found.type) : null;
+                  })()}
                 </div>
                 <div className="flex flex-col gap-1 w-62.5 mt-4">
                   <h3 className="text-sm font-normal text-[#90A1B9]">Outcome</h3>
