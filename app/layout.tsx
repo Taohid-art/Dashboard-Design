@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <SidebarProvider style={{ ['--sidebar-width']: '241px' }}>
+      <SidebarProvider >
         <AppSidebar />
         <SidebarInset className="flex flex-col min-h-svh">
           <Nav />

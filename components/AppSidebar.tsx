@@ -47,12 +47,13 @@ export function AppSidebar() {
   return (
     <Sidebar className="bg-[#111B3C] h-svh border-none">
      <SidebarHeader className="bg-[#111B3C] flex items-center p-5 w-full">
+        <Link href="/">
         <Image
           src={logo}
           alt="Logo"
           width={56}
           height={56}
-        />
+        /> </Link>
      </SidebarHeader>
       <SidebarContent className="bg-[#111B3C]">
         <SidebarGroup>

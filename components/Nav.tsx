@@ -4,6 +4,7 @@ import user from "@/public/images/Avatar Style 6.png"
 import { usePathname } from "next/navigation"
 import { Bell } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 const TITLES: Record<string, string> = {
   "/": "Dashboard Overview",
@@ -35,13 +36,14 @@ const Nav = () => {
       <h1 className="text-white text-xl font-semibold max-md:text-lg">{title}</h1>
       <div className="flex items-center gap-9 max-md:gap-3.5">
         <Bell className="text-white w-10 h-10 max-md:w-8 max-md:h-8"/>
+       <Link href="/settings">
         <Image 
           src={user}
           alt="User"
           width={80}
           height={80}
           className="max-md:w-13 max-md:h-13 rounded-full object-cover"
-        />
+        /> </Link>
       </div>
     </div>
   )
